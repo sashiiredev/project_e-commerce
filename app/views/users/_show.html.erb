@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+            <a class="nav-link" <%= link_to "Modifier mon profil" %> </a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">My profile</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6></h6>
+                            <%= @user.email%>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <table class="table table-sm table-hover table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <strong><%=@current_user.orders.each%>Affiche le numero de la commande</strong>
+                                            <button type="button" class="btn btn-info pull-right">Voir la commande</button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 order-lg-1 text-center">
+            <label class="custom-file">
+              <input type="file" id="file" class="custom-file-input">
+             <%if @user.avatar.attached?%>
+              <img class="profile-pic" src="@user.avatar" alt="">
+              <%else%>
+              <%end%>
+            <%= form_tag user_avatars_path(@user.id), multipart: true do %>
+            <%= file_field_tag :avatar %>
+            <%= submit_tag "mettre à jour" %>
+            <% end %>
+            </label>
+
+
+    </div>
+</div>
+</div>

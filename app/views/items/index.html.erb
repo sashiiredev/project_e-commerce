@@ -1,0 +1,14 @@
+<%= render 'layouts/banner' %>
+<section class="gallery-block compact-gallery">
+    	<div class="container">
+    		<div class="heading">
+    			<h2>Kitten Gallery</h2>
+    		</div>
+      </div>
+        <div class="row no-gutters">
+
+        <% @item.each do |i| %>
+          <%= render 'layouts/item_index_row', item: i %>
+        <% end %>
+    	</div>
+</section>

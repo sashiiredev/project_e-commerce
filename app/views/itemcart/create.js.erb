@@ -1,0 +1,5 @@
+var button = document.getElementsByClassName('btn btn-primary btn-sm')[0];
+button.insertAdjacentHTML('afterend', '<small class="text-primary">Déjà dans votre panier</small>');
+button.parentNode.removeChild(button);
+var cart = parseInt(document.getElementsByTagName('small')[0].innerHTML);
+document.getElementsByTagName('small')[0].innerHTML = cart + 1 + " articles";

@@ -1,0 +1,18 @@
+class UserMailer < ApplicationMailer
+  
+  
+  
+
+  default :from => 'any_from_address@example.com'
+
+  # send a signup email to the user, pass in the user object that   contains the user's email address
+  def welcome_email(user)
+    @user = user
+    @url  = 'http://monsite.fr/login'
+    mail( :to => @user.email,
+    :subject => 'Thanks for signing up for our amazing app' )
+  end
+
+  
+
+end
